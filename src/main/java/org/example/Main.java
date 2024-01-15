@@ -31,7 +31,7 @@ public class Main {
                 while ((line = bufferedReader.readLine()) != null) {
 
                     if(count > 1){
-// Split the line into columns using a comma as the delimiter
+                        // Split the line into columns using a comma as the delimiter
                         String[] columns = line.split(",");
                         // Validate and clean the data
                         columns[2] = columns[2].replaceAll("\\s","");
@@ -108,7 +108,7 @@ public class Main {
         return String.format("%02d:%02d:%02d.%03d", hours, minutes, seconds, millis);
     }
     private static String validateAndCleanData(String[] data) {
-        // Validate and clean each field (modify as needed)
+        // Field validation
         String id = data[0];
         String phone = data[2];
         String email = data[3];
@@ -138,7 +138,7 @@ public class Main {
 
         return errors.toString().replaceAll(", $", ""); // Remove trailing comma and space
     }
-
+//Check if email is valid    
     private static boolean isValidEmail(String email) {
         // Use a simple regex for email validation
         String regex = "^[\\w.-]+@[\\w.-]+\\.[a-z]{2,}$";
@@ -147,10 +147,8 @@ public class Main {
         return matcher.matches();
     }
 
-
+//check if mobile Number is OK.
     private static boolean isValidMobileNo(String phoneNumber) {
-        // Customize the phone number validation logic based on your requirements
-        // Here, we use the provided regular expression for validation
         String regex = "^(254|0)([17][0-9]|[1][0-1]){1}[0-9]{1}[0-9]{6}$";
         return phoneNumber.matches(regex);
     }
